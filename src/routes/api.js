@@ -1,10 +1,15 @@
 var express = require('express');
 var router = express.Router();
-let bookHelper = require('../helpers/bookhelper');
+const bookService = require("../services/bookInternalService");
 
 /* GET BOOKs */
 router.get('/', function(req, res, next) {
-    res.json(bookHelper());
+    res.json(bookService.getBooks());
+});
+
+router.get('/authors', function(req, res, next) {
+    console.log(bookService.getAuthors());
+    res.json(bookService.getAuthors());
 });
 
 router.get('/authors/:author', function(req, res, next) {
