@@ -2,6 +2,7 @@ let books = [{"title": "The Warlock Effect", "authors": ["Andy Nyeman", "Jeremy 
     {"title": "This Wretched Valley", "authors": ["Jenny Kiefer"]},
     {"title": "The Demolished Man", "authors": ["Alfred Bester"]},
     {"title": "Raft", "authors": ["Stephen Baxter"]},
+    {"title": "The Stand", "authors": ["Stephen King"]},
     {"title": "Lucky Man", "authors": ["Michael J. Fox"]}];
 
 const getBooks = () => {
@@ -26,7 +27,31 @@ const getAuthors = () => {
     return authors;
 }
 
+const searchAuthors = (firstname="", lastName= "") => {
+    let fullName = firstname.toString().trim() + " " + lastName.toString().trim();
+    fullName = fullName.trim();
+
+    let searchResults = [];
+
+    searchResults = books.filter(item => item.authors.includes(fullName))
+
+    return searchResults;
+}
+
+const searchBooks = (title = "", firstname= "", lastName= "") => {
+    let fullName = firstname.toString().trim() + " " + lastName.toString().trim();
+    fullName = fullName.trim();
+
+    let searchResults = [];
+
+    searchResults = books.filter(item => item.title.includes(title) || item.authors.includes(fullName))
+
+    return searchResults;
+}
+
 module.exports = {
     getBooks,
-    getAuthors
+    getAuthors,
+    searchAuthors,
+    searchBooks
 }
