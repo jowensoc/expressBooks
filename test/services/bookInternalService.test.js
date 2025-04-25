@@ -44,5 +44,12 @@ describe("book internal service", function() {
                      && searchResults[0].authors[0] === "Stephen Baxter");
       });
 
+      it("- books by author last name. Should return results", function () {
+         let searchLastName = "Stephen Baxter";
+         let searchResults = bookInternalService.searchBooks("", "", searchLastName);
+         console.log(searchResults);
+         assert(searchResults.length > 0);
+      });
+
    });
 });
