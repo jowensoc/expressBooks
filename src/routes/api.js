@@ -13,7 +13,8 @@ router.get('/authors', function(req, res, next) {
 });
 
 router.get('/authors/:author', function(req, res, next) {
-    res.json(req.params.author);
+    console.log(req.params.author);
+    res.json(bookService.searchBooks("", "", req.params.author));
 });
 
 module.exports = router;
