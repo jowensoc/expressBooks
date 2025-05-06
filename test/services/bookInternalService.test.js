@@ -45,7 +45,7 @@ describe("book internal service", function() {
       });
 
       it("- books by author last name. Should return results", function () {
-         let searchLastName = "Stephen Baxter";
+         let searchLastName = "Baxter";
          let searchResults = bookInternalService.searchBooks("", "", searchLastName);
          console.log(searchResults);
          assert(searchResults.length > 0);
