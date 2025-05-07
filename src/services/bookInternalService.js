@@ -4,6 +4,7 @@ let books = [{"title": "The Warlock Effect", "authors": ["Andy Nyman", "Jeremy D
     {"title": "The Demolished Man", "authors": ["Alfred Bester"]},
     {"title": "Raft", "authors": ["Stephen Baxter"]},
     {"title": "The Stand", "authors": ["Stephen King"]},
+    {"title": "Memorial", "authors": ["David Mitchell"]},
     {"title": "Salem''s Lot", "authors": ["Stephen King"]},
     {"title": "Lucky Man", "authors": ["Michael J. Fox"]}];
 
