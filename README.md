@@ -9,7 +9,7 @@ Start Web Application. It will start the web application and can be access at th
 npm run start
 ```
 
-Run tests. Mocha will will tests in the 'test' directory'.
+Run tests. Mocha will run tests within the 'test' directory'.
 
 ```
 npm run test
