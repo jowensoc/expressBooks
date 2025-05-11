@@ -6,7 +6,7 @@ let books = [{"title": "The Warlock Effect", "authors": [ createAuthor("Andy","N
     {"title": "The Demolished Man", "authors": [createAuthor("Alfred","Bester")]},
     {"title": "Raft", "authors": [createAuthor("Stephen", "Baxter")]},
     {"title": "The Stand", "authors": [createAuthor("Stephen", "King")]},
-    {"title": "Memorial", "authors": [createAuthor("David", "Mitchell")]},
+    {"title": "Memorial", "authors": [createAuthor("Bryan", "Washington")]},
     {"title": "Salem''s Lot", "authors": [createAuthor("Stephen", "King")]},
     {"title": "Lucky Man", "authors": [createAuthor("Michael J.", "Fox")]}];
 
@@ -49,17 +49,8 @@ const searchBooks = (title = "", firstname= "", lastName= "") => {
 
     let searchResults = [];
 
-    if (!title && !fullName) {
-        searchResults = books;
-    } else if (title && !fullName) {
-        searchResults = books.filter(item => item.title.includes(title));
-    } else if (!title && fullName) {
-        searchResults = books.filter(item =>
-            item.authors.some(authorItem => authorItem.fullname.includes(fullName)));
-    } else {
-        searchResults = books.filter(item => item.title.includes(title)
-            && item.authors.some(authorItem => authorItem.fullname.includes(fullName)));
-    }
+    searchResults = books.filter(item => item.title.includes(title)
+        && item.authors.some(authorItem => authorItem.fullname.includes(fullName)));
 
     return searchResults;
 }

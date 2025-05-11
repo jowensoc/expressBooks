@@ -46,6 +46,14 @@ describe("book internal service", function() {
                      && searchResults[0].authors[0].fullname === "Stephen Baxter");
       });
 
+      it("- books by author firstname and lastname. Should return results", function () {
+         let searchFirstName = "Alfred";
+         let searchLastName = "Bester";
+         let searchResults = bookInternalService.searchBooks("", searchFirstName, searchLastName);
+         console.log(searchResults);
+         assert(searchResults.length > 0);
+      });
+
       it("- books by author last name. Should return results", function () {
          let searchLastName = "Baxter";
          let searchResults = bookInternalService.searchBooks("", "", searchLastName);
