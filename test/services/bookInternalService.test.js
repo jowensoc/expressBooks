@@ -19,6 +19,8 @@ describe("book internal service", function() {
       it("- books by author. Should return results", function () {
          let searchResults = bookInternalService.searchAuthors("Stephen", "King");
          assert(searchResults.length > 0);
+
+         console.table(searchResults);
       });
 
       it("- books by author. Should not return any results", function () {
@@ -41,7 +43,7 @@ describe("book internal service", function() {
          let searchResults = bookInternalService.searchBooks("Raft", "Stephen", "Baxter");
          assert(searchResults.length > 0);
          assert(searchResults[0].title === "Raft"
-                     && searchResults[0].authors[0] === "Stephen Baxter");
+                     && searchResults[0].authors[0].fullname === "Stephen Baxter");
       });
 
       it("- books by author last name. Should return results", function () {

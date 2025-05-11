@@ -9,7 +9,7 @@
     <% for(let idx=0; idx < books.length; idx++) { %>
         <p><%= books[idx].title %> -
             <% for(let authIdx=0; authIdx < books[idx].authors.length; authIdx++) { %>
-                <%= books[idx].authors[authIdx] %>,
+                <%= books[idx].authors[authIdx].fullname %>,
             <% } %>
         </p>
     <% } %>
