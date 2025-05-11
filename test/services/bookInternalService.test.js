@@ -61,5 +61,11 @@ describe("book internal service", function() {
          assert(searchResults.length > 0);
       });
 
+      it("- books by genre. Should return results", function () {
+         let searchResults = bookInternalService.searchBooks("", "", "", "fiction");
+         assert(searchResults.length > 0);
+         console.log(searchResults);
+      });
+
    });
 });

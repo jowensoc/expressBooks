@@ -1,14 +1,33 @@
 const { createAuthor } = require("../helpers/authorhelper");
 
-let books = [{"title": "The Warlock Effect", "authors": [ createAuthor("Andy","Nyman"), createAuthor("Jeremy","Dyson")]},
-    {"title": "This Wretched Valley", "authors": [ createAuthor("Jenny", "Kiefer")]},
-    {"title": "Ark", "authors": [createAuthor("Stephen", "Baxter")]},
-    {"title": "The Demolished Man", "authors": [createAuthor("Alfred","Bester")]},
-    {"title": "Raft", "authors": [createAuthor("Stephen", "Baxter")]},
-    {"title": "The Stand", "authors": [createAuthor("Stephen", "King")]},
-    {"title": "Memorial", "authors": [createAuthor("Bryan", "Washington")]},
-    {"title": "Salem''s Lot", "authors": [createAuthor("Stephen", "King")]},
-    {"title": "Lucky Man", "authors": [createAuthor("Michael J.", "Fox")]}];
+let books = [{"title": "The Warlock Effect",
+                                    "category": "fiction",
+                                    "authors": [ createAuthor("Andy","Nyman"),
+                                                createAuthor("Jeremy","Dyson")]},
+    {"title": "This Wretched Valley",
+        "category": "horror",
+        "authors": [ createAuthor("Jenny", "Kiefer")]},
+    {"title": "Ark",
+        "category": "sci-fi",
+        "authors": [createAuthor("Stephen", "Baxter")]},
+    {"title": "The Demolished Man",
+        "category": "sci-fi",
+        "authors": [createAuthor("Alfred","Bester")]},
+    {"title": "Raft",
+        "category": "sci-fi",
+        "authors": [createAuthor("Stephen", "Baxter")]},
+    {"title": "The Stand",
+        "category": "horror",
+        "authors": [createAuthor("Stephen", "King")]},
+    {"title": "Memorial",
+        "category": "fiction",
+        "authors": [createAuthor("Bryan", "Washington")]},
+    {"title": "Salem''s Lot",
+        "category": "horror",
+        "authors": [createAuthor("Stephen", "King")]},
+    {"title": "Lucky Man",
+        "category": "non-fiction",
+        "authors": [createAuthor("Michael J.", "Fox")]}];
 
 const getBooks = () => {
     return books;
@@ -43,13 +62,15 @@ const searchAuthors = (firstname="", lastName= "") => {
     return searchResults;
 }
 
-const searchBooks = (title = "", firstname= "", lastName= "") => {
+const searchBooks = (title = "", firstname= "", lastName= "", category= "") => {
     let fullName = firstname.toString().trim() + " " + lastName.toString().trim();
     fullName = fullName.trim();
+    category = category ? category.trim().trim() : ""
 
     let searchResults = [];
 
     searchResults = books.filter(item => item.title.includes(title)
+        && item.category.includes(category)
         && item.authors.some(authorItem => authorItem.fullname.includes(fullName)));
 
     return searchResults;
