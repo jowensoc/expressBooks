@@ -7,7 +7,7 @@
   <body>
     <h1><%= title %></h1>
     <% for(let idx=0; idx < books.length; idx++) { %>
-        <p><%= books[idx].title %> -
+        <p><%= books[idx].title %> - <%= books[idx].category %> -
             <% for(let authIdx=0; authIdx < books[idx].authors.length; authIdx++) { %>
                 <%= books[idx].authors[authIdx].fullname %>,
             <% } %>
