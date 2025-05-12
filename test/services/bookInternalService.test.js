@@ -3,28 +3,40 @@ const bookInternalService = require("../../src/services/bookInternalService")
 
 describe("book internal service", function() {
 
-   describe("get requests", function() {
-      it("- books", function () {
+   describe("- books", function() {
+      it("- get request", function () {
          let books = bookInternalService.getBooks();
          assert(books.length > 0);
       });
 
-      it("- authors", function () {
+   });
+
+   describe("- authors", function() {
+      it("- get request", function () {
          let authors = bookInternalService.getAuthors();
          assert(authors.length > 0);
       });
+
+   });
+
+   describe("- categories", function() {
+      it("- get request", function () {
+         let books = bookInternalService.getCategories();
+         assert(books.length > 0);
+      });
+
    });
 
    describe("search feature", function() {
       it("- books by author. Should return results", function () {
-         let searchResults = bookInternalService.searchAuthors("Stephen", "King");
+         let searchResults = bookInternalService.searchBooks("", "Stephen", "King", "");
          assert(searchResults.length > 0);
 
          console.table(searchResults);
       });
 
       it("- books by author. Should not return any results", function () {
-         let searchResults = bookInternalService.searchAuthors("", "Test");
+         let searchResults = bookInternalService.searchBooks("", "", "", "Test");
          assert(searchResults.length === 0);
       });
 

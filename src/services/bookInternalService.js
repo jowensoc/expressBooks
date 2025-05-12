@@ -51,15 +51,16 @@ const getAuthors = () => {
     return authors;
 }
 
-const searchAuthors = (firstname="", lastName= "") => {
-    let fullName = firstname.toString().trim() + " " + lastName.toString().trim();
-    fullName = fullName.trim();
+const getCategories = () => {
+    let categories = [];
 
-    let searchResults = [];
+    for(let bookIdx=0; bookIdx < books.length; bookIdx++) {
+        if (!categories.includes(books[bookIdx].category)) {
+            categories.push(categories);
+        }
+    }
 
-    searchResults = books.filter(item =>
-                                item.authors.some(authorItem => authorItem.fullname.includes(fullName)));
-    return searchResults;
+    return categories;
 }
 
 const searchBooks = (title = "", firstname= "", lastName= "", category= "") => {
@@ -79,6 +80,6 @@ const searchBooks = (title = "", firstname= "", lastName= "", category= "") => {
 module.exports = {
     getBooks,
     getAuthors,
-    searchAuthors,
+    getCategories,
     searchBooks
 }
