@@ -8,6 +8,23 @@ const createAuthor = (firstName = "", lastName = "") => {
         "fullname":  fullName.toString().trim()}
 };
 
+const listOfAuthorsToString = (listOfAuthors) => {
+    let results = "";
+    let lastIdx = listOfAuthors.length - 1;
+
+    for(let authIdx=0; authIdx < listOfAuthors.length; authIdx++) {
+        results += listOfAuthors[authIdx].fullname;
+
+        if (authIdx < lastIdx) {
+            results += ", ";
+        }
+    }
+
+    return results;
+}
+
+
 module.exports = {
-    createAuthor
+    createAuthor,
+    listOfAuthorsToString
 }
